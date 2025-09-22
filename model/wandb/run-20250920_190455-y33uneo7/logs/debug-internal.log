@@ -1,0 +1,16 @@
+{"time":"2025-09-20T19:04:55.75232195-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20250920_190455-y33uneo7/logs/debug-core.log"}
+{"time":"2025-09-20T19:04:55.863817712-04:00","level":"INFO","msg":"created new stream","id":"y33uneo7"}
+{"time":"2025-09-20T19:04:55.863855384-04:00","level":"INFO","msg":"stream: started","id":"y33uneo7"}
+{"time":"2025-09-20T19:04:55.863863768-04:00","level":"INFO","msg":"handler: started","stream_id":"y33uneo7"}
+{"time":"2025-09-20T19:04:55.863865988-04:00","level":"INFO","msg":"sender: started","stream_id":"y33uneo7"}
+{"time":"2025-09-20T19:04:55.863881215-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"y33uneo7"}
+{"time":"2025-09-20T19:04:56.050428124-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-09-20T19:04:56.305410489-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-09-20T19:04:56.305910211-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-09-20T19:04:56.761508624-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-09-20T19:04:56.907347125-04:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-09-20T19:04:57.946317596-04:00","level":"INFO","msg":"stream: closing","id":"y33uneo7"}
+{"time":"2025-09-20T19:04:57.946347152-04:00","level":"INFO","msg":"handler: closed","stream_id":"y33uneo7"}
+{"time":"2025-09-20T19:04:57.946360861-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"y33uneo7"}
+{"time":"2025-09-20T19:04:57.946368448-04:00","level":"INFO","msg":"sender: closed","stream_id":"y33uneo7"}
+{"time":"2025-09-20T19:04:57.947912072-04:00","level":"INFO","msg":"stream: closed","id":"y33uneo7"}

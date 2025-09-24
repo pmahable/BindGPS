@@ -36,3 +36,24 @@ def compute_metrics(outputs, labels, num_classes):
         "auprc": auprc,
         "accuracy": accuracy,
     }
+
+def compute_regression_metrics(outputs, labels):
+    """
+    Compute metrics (MAE, MSE) for the model.
+
+    Args:
+        outputs: outputs from the model
+        labels: true labels
+    """
+
+    outputs = torch.Tensor(outputs)
+    labels = torch.Tensor(labels)
+
+    mae = F.l1_loss(outputs, labels)
+    mse = F.mse_loss(outputs, labels)
+    
+    return {
+        "mae": mae,
+        "mse": mse,
+    }
+        

@@ -1,10 +1,13 @@
 from itertools import product
 import numpy as np
 from scipy.sparse import csr_array
+from scipy import sparse
+
 import pandas as pd
 
 from torch.utils.data import Dataset, DataLoader
 
+    
 class KmerTokenizer:
     def __init__(self, k=8, alphabet=('A','C','G','T')):
         self.k = k

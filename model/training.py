@@ -31,3 +31,19 @@ class SeqSVMTrainer:
 
     def input_gradients():
         pass
+
+
+# TODO: @Pranav
+class NTSeqTrainer:
+    def __init__(self):
+        pass
+
+    def train():
+        pass
+
+    def evaluate():
+        pass
+
+    def interpretability():
+        pass
+        

@@ -1,5 +1,6 @@
 import numpy as np
 from scipy import sparse
+import joblib
 
 def load_kmer_counts(path: str = "../data/sparse_kmer_counts.npz", drop_unk: bool = True):
     mat = sparse.load_npz(path)
@@ -18,3 +19,4 @@ def load_svd(n_components: int = 128, path: str = None):
     if path is None:
         path = f"../models/seq_svm/svd_model_{n_components}.joblib"
     return joblib.load(path)
+

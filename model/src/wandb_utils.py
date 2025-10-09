@@ -45,7 +45,7 @@ class WandbLogger:
             self.current_run = wandb.init(
                 entity=self.entity,
                 project=self.project,
-                name=name,
+                name=name, # TODO: DEFAULT IS NONE, let wandb assign
                 config=config
             )
             yield self.current_run
@@ -54,6 +54,7 @@ class WandbLogger:
                 wandb.finish()
                 self.current_run = None
     
+    # TODO: add val/train to dictionary keys before logging
     def log(self, metrics: Dict[str, float]):
         """
         Log metrics to wandb.

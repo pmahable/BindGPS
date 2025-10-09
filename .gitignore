@@ -1,3 +1,12 @@
-data
 output
 model/wandb
+*.npz
+*.pt
+*.bedpe
+*.tsv
+.ipynb_checkpoints
+*res.txt
+*kb.txt
+*.fa
+*.txt
+*.pkl

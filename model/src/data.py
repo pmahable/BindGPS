@@ -204,7 +204,12 @@ class GraphParamBuilder:
 
         #edge information
         edges = self.edge_df[['bin1', 'bin2']]
-        edge_weight = self.edge_df['p-value_transformed']
+        edge_pvalue_transformed = self.edge_df['p-value_transformed']
+        edge_contactCount = self.edge_df['contactCount']
+
+        # transformed loop size
+        self.edge_df['loop_size_transformed'] = np.log10(self.edge_df['loop_size'] + 1e-8)
+        edge_loop_size_transformed = self.edge_df['loop_size_transformed']
 
         #return tensors
         return {
@@ -215,7 +220,9 @@ class GraphParamBuilder:
             "val_mask": torch.tensor(val_mask, dtype=torch.bool),
             "test_mask": torch.tensor(test_mask, dtype=torch.bool),
             "edge_index": torch.tensor(edges.transpose().to_numpy(), dtype=torch.long),
-            "edge_weight": torch.tensor(edge_weight.to_numpy(), dtype=torch.float32),
+            "edge_pvalue_transformed": torch.tensor(edge_pvalue_transformed.to_numpy(), dtype=torch.float32),
+            "edge_contactCount": torch.tensor(edge_contactCount.to_numpy(), dtype=torch.float32),
+            "edge_loop_size_transformed": torch.tensor(edge_loop_size_transformed.to_numpy(), dtype=torch.float32),
         }
 
         

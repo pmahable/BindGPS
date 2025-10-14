@@ -10,3 +10,5 @@ model/wandb
 *.fa
 *.txt
 *.pkl
+__pycache__
+.DS_Store

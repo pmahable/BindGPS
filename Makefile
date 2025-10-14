@@ -14,5 +14,6 @@ lint:
 
 permission:
 	chmod -R 777 .
+	chmod -R 777 .git
 
 .PHONY: lint permission

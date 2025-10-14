@@ -181,8 +181,8 @@ class GraphParamBuilder:
         train_mask : training nodes [True if included in training set / False if not]
         val_mask : validation nodes (see above)
         test_mask : testing nodes (see above)
-        edge_index : 
-        edge_weight : 
+        edge_index : bin1 and bin2 labels
+        edge_weight : -log10 transformed p-value
         
         """
         y = self.target

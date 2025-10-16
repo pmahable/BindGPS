@@ -7,10 +7,10 @@ Each config includes a project name for organized logging.
 quick_test_config = {
     'method': 'grid',
     'metric': {'name': 'final_test_accuracy', 'goal': 'maximize'},
-    'project': 'gps-quick-test',
+    'project': 'basic-gnn-sweep',
     'parameters': {
         'lr': {'values': [5e-4, 1e-3]},
-        'hidden_gnn_size': {'values': [64, 128]},
+        'hidden_gnn_size': {'values': [128]},
         'epochs': {'value': 10}  # Very short for testing
     }
 }

@@ -17,9 +17,11 @@ def train():
     Training function called by wandb sweep agent.
     Gets hyperparameters from wandb.config and runs training.
     """
+
     # Initialize wandb run (done automatically by sweep agent)
+    wandb.init()
     config = Config()
-    
+
     # Override config with wandb sweep parameters
     for key, value in wandb.config.items():
         if hasattr(config, key):
@@ -32,13 +34,9 @@ def train():
     
     # Run training
     trainer = GNNTrainer(config)
-    trainer.fit()
+    trainer.run()
     
-    # Get final test accuracy and log it
-    test_acc = trainer.evaluate()
-    wandb.log({"final_test_accuracy": test_acc})
-    
-    return test_acc
+    return
 
 
 def run_single(config_overrides=None):
@@ -53,12 +51,14 @@ def run_single(config_overrides=None):
     
     # Set wandb settings
     config.use_wandb = WANDB_AVAILABLE
-    config.wandb_project = "basic-intro"
+    config.wandb_project = "basic-gnn"
     config.wandb_entity = "bind-gps"
+    config.use_wandb = False
     
     trainer = GNNTrainer(config)
     trainer.run()
-    return trainer.evaluate()
+    
+    return
 
 
 def run_wandb_sweep(sweep_config, count=10):
@@ -71,12 +71,12 @@ def run_wandb_sweep(sweep_config, count=10):
     """
     if not WANDB_AVAILABLE:
         raise RuntimeError("wandb is required for wandb sweeps")
-    
+
     # Create sweep
     sweep_id = wandb.sweep(
         sweep=sweep_config,
         entity="bind-gps",
-        project=sweep_config.get('project', 'basic-intro')
+        project=sweep_config.get('project', 'basic-gnn-sweep')
     )
     
     print(f"Created sweep: {sweep_id}")
@@ -87,16 +87,15 @@ def run_wandb_sweep(sweep_config, count=10):
         sweep_id=sweep_id,
         function=train,
         entity="bind-gps",
-        project=sweep_config.get('project', 'basic-intro'),
+        project=sweep_config.get('project', 'basic-gnn-sweep'),
         count=count
     )
 
-
 if __name__ == "__main__":
     # Run single experiment
-    print("Running single experiment...")
-    run_single()
+    # print("Running single experiment...")
+    # run_single()
     
     # Example wandb sweep (uncomment to run):
-    # from sweep_configs import lr_sweep_config
-    # run_wandb_sweep(lr_sweep_config, count=5)
+    from sweep_configs import quick_test_config
+    run_wandb_sweep(quick_test_config, count=3)

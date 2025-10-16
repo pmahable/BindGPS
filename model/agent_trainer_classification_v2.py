@@ -59,7 +59,7 @@ class Config:
     # Optimization
     lr: float = 5e-4
     weight_decay: float = 5e-4
-    epochs: int = 25
+    epochs: int = 5
 
     # NeighborLoader
     num_neighbors: Tuple[int, int, int] = (20, 20, 20)

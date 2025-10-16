@@ -59,7 +59,7 @@ class Config:
     # Optimization
     lr: float = 5e-4
     weight_decay: float = 5e-4
-    epochs: int = 5
+    epochs: int = 25
 
     # NeighborLoader
     num_neighbors: Tuple[int, int, int] = (20, 20, 20)
@@ -298,7 +298,7 @@ class GNNTrainer:
 def main():
     cfg = Config(
         # toggle this on to log to W&B (requires `wandb login`)
-        use_wandb=False, seed=42  # Using default seed for reproducibility
+        use_wandb=True, seed=42  # Using default seed for reproducibility
     )
     trainer = GNNTrainer(cfg)
     trainer.run()

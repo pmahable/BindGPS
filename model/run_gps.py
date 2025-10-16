@@ -98,4 +98,4 @@ if __name__ == "__main__":
     
     # Example wandb sweep (uncomment to run):
     from sweep_configs import quick_test_config
-    run_wandb_sweep(quick_test_config, count=3)
+    run_wandb_sweep(quick_test_config, count=5)

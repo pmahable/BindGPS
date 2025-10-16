@@ -48,7 +48,7 @@ class Config:
     train_size: float = 0.8
     seed: int = 42
 
-    # Model
+    # GCN Model
     hidden_gnn_size: int = 128
     num_gnn_layers: int = 3
     hidden_linear_size: int = 128
@@ -59,7 +59,7 @@ class Config:
     # Optimization
     lr: float = 5e-4
     weight_decay: float = 5e-4
-    epochs: int = 100
+    epochs: int = 25
 
     # NeighborLoader
     num_neighbors: Tuple[int, int, int] = (20, 20, 20)
@@ -71,7 +71,7 @@ class Config:
 
     # Logging
     use_wandb: bool = False
-    wandb_project: str = "gnn-mre"
+    wandb_project: str = "basic-gnn"
     wandb_entity: Optional[str] = None  # or your entity string
 
 # ----------------------------
@@ -298,11 +298,10 @@ class GNNTrainer:
 def main():
     cfg = Config(
         # toggle this on to log to W&B (requires `wandb login`)
-        use_wandb=False,
+        use_wandb=False, seed=42  # Using default seed for reproducibility
     )
     trainer = GNNTrainer(cfg)
     trainer.run()
-
 
 if __name__ == "__main__":
     main()

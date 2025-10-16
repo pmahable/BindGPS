@@ -13,7 +13,7 @@ from sklearn.metrics import accuracy_score
 from torch.utils.data import DataLoader, TensorDataset
 
 # Project modules
-from data import DatasetLoader, GraphParamBuilder
+from src.data import DatasetLoader, GraphParamBuilder
 from src.models import GCN
 
 # PyG
@@ -34,7 +34,7 @@ except Exception:
 @dataclass
 class Config:
     # Paths
-    # base_path: str = "/home/jchc/Documents/larschan_laboratory/BindGPS/data/datasets"
+    base_path: str = "/home/jchc/Documents/larschan_laboratory/BindGPS/data/datasets"
 
     # Data
     p_value: str = "0_1"

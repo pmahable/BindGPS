@@ -177,7 +177,7 @@ class GNNTrainer:
         X = tensors["X"]                          # [N, F] float
         y = tensors["y"].to(torch.long)           # [N] long for CE loss
         edge_index = tensors["edge_index"]        # [2, E]
-        edge_weight = tensors["edge_weight"]      # [E] (optional)
+        edge_weight = tensors["edge_pvalue_transformed"]      # [E] (optional)
 
         pyg_data = Data(
             x=X,
@@ -206,8 +206,7 @@ class GNNTrainer:
     def build_model(self) -> None:
         assert self.data is not None, "Call build_dataset() first."
 
-        # Safer class count (works even if labels aren't 0..C-1)
-        num_classes = int(torch.unique(self.data.y[self.data.train_mask]).numel())
+        num_classes = len(self.data.y.unique()) # total classes, instead of those solely unmasked
 
         self.model = GCN(
             in_channels=self.data.x.size(1),
@@ -279,6 +278,7 @@ class GNNTrainer:
         train_loader = self.build_loaders()
         self.build_model()
 
+        print(self.device)
         for epoch in range(self.cfg.epochs):
             loss, acc = self._train_one_epoch(train_loader, epoch)
             print(f"Epoch {epoch:03d} | loss={loss:.4f} | acc={acc:.4f}")

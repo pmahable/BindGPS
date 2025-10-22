@@ -14,7 +14,7 @@ from torch.utils.data import DataLoader, TensorDataset
 
 # Project modules
 from src.data import DatasetLoader, GraphParamBuilder
-from src.models import GCN
+from src.models import GCN, GATModel
 
 # PyG
 from torch_geometric.data import Data
@@ -34,7 +34,8 @@ except Exception:
 @dataclass
 class Config:
     # Paths
-    base_path: str = "/home/jchc/Documents/larschan_laboratory/BindGPS/data/datasets"
+    # base_path: str = "/home/jchc/Documents/larschan_laboratory/BindGPS/data/datasets"
+    base_path: str = "/gpfs/data/larschan/shared_data/BindGPS/data/datasets/"
 
     # Data
     p_value: str = "0_1"
@@ -48,13 +49,22 @@ class Config:
     train_size: float = 0.8
     seed: int = 42
 
-    # GCN Model
+    # Model
+    model_type: str = "gcn"  # "gcn" or "gat"
     hidden_gnn_size: int = 128
     num_gnn_layers: int = 3
     hidden_linear_size: int = 128
     num_linear_layers: int = 3
     dropout: float = 0.5
     normalize: bool = True
+    
+    # GAT-specific parameters
+    gat_heads: int = 4
+    gat_negative_slope: float = 0.2
+    gat_concat: bool = True
+    gat_use_topk: bool = False
+    gat_k: int = 10
+    gat_edge_dim: int = 2  # contactCount + loop_size_transformed
 
     # Optimization
     lr: float = 5e-4
@@ -64,7 +74,7 @@ class Config:
     # NeighborLoader
     num_neighbors: Tuple[int, int, int] = (20, 20, 20)
     batch_size: int = 256
-    num_workers: int = 8
+    num_workers: int = 1
 
     # Device / perf
     use_cuda_if_available: bool = True
@@ -177,13 +187,22 @@ class GNNTrainer:
         X = tensors["X"]                          # [N, F] float
         y = tensors["y"].to(torch.long)           # [N] long for CE loss
         edge_index = tensors["edge_index"]        # [2, E]
-        edge_weight = tensors["edge_pvalue_transformed"]      # [E] (optional)
+        
+        # Edge weights for NeighborSampler (use p-value transformed)
+        edge_weight = tensors["edge_pvalue_transformed"]  # [E]
+        
+        # Edge features (contact count + loop size transformed)
+        edge_attr = torch.stack([
+            tensors["edge_contactCount"],
+            tensors["edge_loop_size_transformed"]
+        ], dim=1)  # [E, 2] - 2 edge features
 
         pyg_data = Data(
             x=X,
             y=y,
             edge_index=edge_index,
             edge_weight=edge_weight,
+            edge_attr=edge_attr,
             train_mask=torch.tensor(train_mask.to_numpy(), dtype=torch.bool),
             test_mask=torch.tensor(test_mask.to_numpy(), dtype=torch.bool),
         )
@@ -206,18 +225,57 @@ class GNNTrainer:
     def build_model(self) -> None:
         assert self.data is not None, "Call build_dataset() first."
 
-        num_classes = len(self.data.y.unique()) # total classes, instead of those solely unmasked
+        # Safer class count (works even if labels aren't 0..C-1)
+        train_labels = self.data.y[self.data.train_mask]
+        unique_labels = torch.unique(train_labels)
+        num_classes = int(unique_labels.numel())
+        
+        print(f"Debug: train_mask sum: {self.data.train_mask.sum()}")
+        print(f"Debug: unique train labels: {unique_labels}")
+        print(f"Debug: min/max train labels: {train_labels.min()}/{train_labels.max()}")
+        print(f"Debug: num_classes: {num_classes}")
+        
+        # Check if labels need remapping to 0..C-1 range
+        if unique_labels.min() != 0 or unique_labels.max() != (num_classes - 1):
+            print(f"Warning: Labels not in 0..{num_classes-1} range, remapping...")
+            # Create mapping from original labels to 0..C-1
+            label_mapping = {int(old_label): new_label for new_label, old_label in enumerate(unique_labels)}
+            print(f"Label mapping: {label_mapping}")
+            
+            # Remap all labels in the dataset
+            for old_label, new_label in label_mapping.items():
+                self.data.y[self.data.y == old_label] = new_label
 
-        self.model = GCN(
-            in_channels=self.data.x.size(1),
-            out_channels=num_classes,
-            hidden_gnn_size=self.cfg.hidden_gnn_size,
-            num_gnn_layers=self.cfg.num_gnn_layers,
-            hidden_linear_size=self.cfg.hidden_linear_size,
-            num_linear_layers=self.cfg.num_linear_layers,
-            dropout=self.cfg.dropout,
-            normalize=self.cfg.normalize,
-        ).to(self.device)
+
+        if self.cfg.model_type.lower() == "gcn":
+            self.model = GCN(
+                in_channels=self.data.x.size(1),
+                out_channels=num_classes,
+                hidden_gnn_size=self.cfg.hidden_gnn_size,
+                num_gnn_layers=self.cfg.num_gnn_layers,
+                hidden_linear_size=self.cfg.hidden_linear_size,
+                num_linear_layers=self.cfg.num_linear_layers,
+                dropout=self.cfg.dropout,
+                normalize=self.cfg.normalize,
+            ).to(self.device)
+        elif self.cfg.model_type.lower() == "gat":
+            self.model = GATModel(
+                in_channels=self.data.x.size(1),
+                out_channels=num_classes,
+                hidden_gnn_size=self.cfg.hidden_gnn_size,
+                num_gnn_layers=self.cfg.num_gnn_layers,
+                hidden_linear_size=self.cfg.hidden_linear_size,
+                num_linear_layers=self.cfg.num_linear_layers,
+                heads=self.cfg.gat_heads,
+                concat=self.cfg.gat_concat,
+                negative_slope=self.cfg.gat_negative_slope,
+                dropout=self.cfg.dropout,
+                edge_dim=self.cfg.gat_edge_dim,
+                use_topk=self.cfg.gat_use_topk,
+                k=self.cfg.gat_k,
+            ).to(self.device)
+        else:
+            raise ValueError(f"Unsupported model_type: {self.cfg.model_type}. Use 'gcn' or 'gat'.")
 
         self.optimizer = torch.optim.Adam(
             self.model.parameters(),
@@ -238,7 +296,13 @@ class GNNTrainer:
             batch = batch.to(self.device)
             self.optimizer.zero_grad()
 
-            out = self.model(batch.x, batch.edge_index)  # [N_batch, C]
+            # Handle different model types
+            if self.cfg.model_type.lower() == "gat":
+                # GAT models can use edge attributes if available
+                edge_attr = getattr(batch, 'edge_attr', None)
+                out = self.model(batch.x, batch.edge_index, edge_attr=edge_attr)  # [N_batch, C]
+            else:
+                out = self.model(batch.x, batch.edge_index)  # [N_batch, C]
             mask = batch.train_mask.bool()
             targets = batch.y.to(torch.long)
 
@@ -264,7 +328,13 @@ class GNNTrainer:
         self.model.eval()
         d = self.data.to(self.device)
 
-        logits = self.model(d.x, d.edge_index)
+        # Handle different model types
+        if self.cfg.model_type.lower() == "gat":
+            # GAT models can use edge attributes if available
+            edge_attr = getattr(d, 'edge_attr', None)
+            logits = self.model(d.x, d.edge_index, edge_attr=edge_attr)
+        else:
+            logits = self.model(d.x, d.edge_index)
         mask = d.test_mask.bool()
         preds = logits[mask].argmax(dim=1).detach().cpu()
         targets = d.y[mask].to(torch.long).detach().cpu()

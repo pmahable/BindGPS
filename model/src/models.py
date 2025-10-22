@@ -147,7 +147,7 @@ class TopKGATConv(MessagePassing):
         if self.bias is not None:
             out = out + self.bias
 
-        return out
+        return out, alpha
 
     def edge_update(self, alpha_j, alpha_i, edge_attr, index, ptr, dim_size):
         alpha = alpha_j + alpha_i # (E, H)
@@ -205,11 +205,11 @@ class GATModel(nn.Module):
         assert num_linear_layers >= 1, "num_linear_layers counts the output layer; must be >= 1"
 
         if num_gnn_layers == 1:
-            self.gat_convs = nn.ModuleList([TopKGATConv(in_channels, hidden_gnn_size, heads, concat, negative_slope, dropout, edge_dim, bias, use_topk, k)])
+            self.gat_convs = nn.ModuleList([TopKGATConv(in_channels, hidden_gnn_size, concat, heads, negative_slope, dropout, edge_dim, bias, use_topk, k)])
         else:
-            first = [TopKGATConv(in_channels, hidden_gnn_size, heads, concat, negative_slope, dropout, edge_dim, bias, use_topk, k)]
-            middle = [TopKGATConv(hidden_gnn_size*heads, hidden_gnn_size, heads, concat, negative_slope, dropout, edge_dim, bias, use_topk, k) for _ in range(num_gnn_layers - 2)]
-            last = [TopKGATConv(hidden_gnn_size*heads, hidden_gnn_size, heads, False, negative_slope, dropout, edge_dim, bias, use_topk, k)]
+            first = [TopKGATConv(in_channels, hidden_gnn_size, concat, heads, negative_slope, dropout, edge_dim, bias, use_topk, k)]
+            middle = [TopKGATConv(hidden_gnn_size*heads, hidden_gnn_size, concat, heads, negative_slope, dropout, edge_dim, bias, use_topk, k) for _ in range(num_gnn_layers - 2)]
+            last = [TopKGATConv(hidden_gnn_size*heads, hidden_gnn_size, False, heads, negative_slope, dropout, edge_dim, bias, use_topk, k)]
             self.gat_convs = nn.ModuleList(first + middle + last)
 
         # linear layers

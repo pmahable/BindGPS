@@ -110,7 +110,7 @@ if __name__ == "__main__":
     
     # Run single experiment with GAT
     print("Running single GAT experiment...")
-    gat_test_config = get_sweep_config('gat_test_dry_run')
+    gat_test_config = get_sweep_config('quick_test')
     run_wandb_sweep(gat_test_config, count=1)
     
     # Example sweeps (uncomment to run):

@@ -46,7 +46,8 @@ class Config:
         "h3k4me1","h3k4me2","h3k4me3","h3k9me3","h4k16ac"
     )
     target_column: str = "mre_labels"
-    train_size: float = 0.8
+    train_size: float = 0.7
+    non_mre_size: float = 0.3
     seed: int = 42
 
     # Model
@@ -62,8 +63,6 @@ class Config:
     gat_heads: int = 4
     gat_negative_slope: float = 0.2
     gat_concat: bool = True
-    gat_use_topk: bool = False
-    gat_k: int = 10
     gat_edge_dim: int = 2  # contactCount + loop_size_transformed
 
     # Optimization
@@ -75,6 +74,9 @@ class Config:
     num_neighbors: Tuple[int, int, int] = (20, 20, 20)
     batch_size: int = 256
     num_workers: int = 1
+    
+    # Batch validation (processes all edges)
+    val_batch_size: Optional[int] = 1024  # If None, uses full graph evaluation
 
     # Device / perf
     use_cuda_if_available: bool = True
@@ -155,10 +157,27 @@ class GNNTrainer:
         # Target and mask (mre > 0 considered labeled)
         target = self.node_df[self.cfg.target_column].copy()
         self.node_df["mre_mask"] = self.node_df[self.cfg.target_column].apply(lambda x: True if x > 0 else False)
-        mask = self.node_df["mre_mask"].astype(bool)
+        mre_mask = self.node_df["mre_mask"].astype(bool)
+
+        total_mre_samples = mre_mask.sum()
+        self.node_df["non_mre_mask"] = self.node_df[self.cfg.target_column].apply(lambda x: True if x == 0 else False)
+        non_mre_mask = self.node_df["non_mre_mask"].astype(bool)
+
+
+        # Randomly select non-MRE samples based on defined size. 
+        non_mre_samples = total_mre_samples * self.cfg.non_mre_size
+        indices = np.arange(len(non_mre_mask))
+        non_mre_indices = indices[non_mre_mask]
+        selected_non_mres = np.random.choice(non_mre_indices, size=int(non_mre_samples), replace=False)
+        non_mre_mask = np.zeros(len(non_mre_mask), dtype=bool)
+        non_mre_mask[selected_non_mres] = True
+        self.node_df["non_mre_mask"] = non_mre_mask
+
+        # Combine MRE and non-MRE Samples
+        mask = mre_mask | non_mre_mask
 
         # Stratified split on masked subset
-        X_train, X_test, y_train, y_test = train_test_split(
+        X_train, X_evaluation, y_train, y_evaluation = train_test_split(
             input_features[mask],
             target[mask],
             train_size=self.cfg.train_size,
@@ -166,10 +185,20 @@ class GNNTrainer:
             random_state=self.cfg.seed,
         )
 
+        X_val, X_test, y_val, y_test = train_test_split(
+            X_evaluation,
+            y_evaluation,
+            train_size=0.3,
+            stratify=y_evaluation,
+            random_state=self.cfg.seed,
+        )
+
         # Build boolean masks over the FULL index
         train_mask = pd.Series(False, index=input_features.index)
+        val_mask = pd.Series(False, index=input_features.index)
         test_mask = pd.Series(False, index=input_features.index)
         train_mask.loc[X_train.index] = True
+        val_mask.loc[X_val.index] = True
         test_mask.loc[X_test.index] = True
 
         # Build tensors via your helper
@@ -204,13 +233,16 @@ class GNNTrainer:
             edge_weight=edge_weight,
             edge_attr=edge_attr,
             train_mask=torch.tensor(train_mask.to_numpy(), dtype=torch.bool),
+            val_mask=torch.tensor(val_mask.to_numpy(), dtype=torch.bool),
             test_mask=torch.tensor(test_mask.to_numpy(), dtype=torch.bool),
         )
         self.data = pyg_data
 
-    def build_loaders(self) -> NeighborLoader:
+    def build_loaders(self) -> Tuple[NeighborLoader, NeighborLoader, NeighborLoader]:
         assert self.data is not None, "Call build_dataset() first."
-        loader = NeighborLoader(
+        
+        # Training loader with neighbor sampling
+        train_loader = NeighborLoader(
             self.data,
             input_nodes=self.data.train_mask,
             num_neighbors=list(self.cfg.num_neighbors),
@@ -219,7 +251,30 @@ class GNNTrainer:
             num_workers=self.cfg.num_workers,
             pin_memory=self.device.type == "cuda",
         )
-        return loader
+        
+        # Validation loader with ALL neighbors (-1 means no sampling limit)
+        val_loader = NeighborLoader(
+            self.data,
+            input_nodes=self.data.val_mask,
+            num_neighbors=[-1] * len(self.cfg.num_neighbors),  # Sample ALL neighbors
+            batch_size=self.cfg.val_batch_size if self.cfg.val_batch_size else self.cfg.batch_size,
+            weight_attr="edge_weight",
+            num_workers=self.cfg.num_workers,
+            pin_memory=self.device.type == "cuda",
+        )
+        
+        # Test loader with ALL neighbors
+        test_loader = NeighborLoader(
+            self.data,
+            input_nodes=self.data.test_mask,
+            num_neighbors=[-1] * len(self.cfg.num_neighbors),  # Sample ALL neighbors
+            batch_size=self.cfg.val_batch_size if self.cfg.val_batch_size else self.cfg.batch_size,
+            weight_attr="edge_weight",
+            num_workers=self.cfg.num_workers,
+            pin_memory=self.device.type == "cuda",
+        )
+        
+        return train_loader, val_loader, test_loader
 
     # ----- Model / Optim -----
     def build_model(self) -> None:
@@ -230,12 +285,13 @@ class GNNTrainer:
         unique_labels = torch.unique(train_labels)
         num_classes = int(unique_labels.numel())
         
-        print(f"Debug: train_mask sum: {self.data.train_mask.sum()}")
-        print(f"Debug: unique train labels: {unique_labels}")
-        print(f"Debug: min/max train labels: {train_labels.min()}/{train_labels.max()}")
-        print(f"Debug: num_classes: {num_classes}")
+        print(f"Unique train labels: {unique_labels}")
+        print(f"Training with num_classes: {num_classes}")
+        print(f"Train Samples: {self.data.train_mask.sum()}")
+        print(f"Val Samples: {self.data.val_mask.sum()}")
+        print(f"Test Samples: {self.data.test_mask.sum()}")
         
-        # Check if labels need remapping to 0..C-1 range
+        # Check if labels need remapping to 0..C-1 range, will happen when we exclude non-mres
         if unique_labels.min() != 0 or unique_labels.max() != (num_classes - 1):
             print(f"Warning: Labels not in 0..{num_classes-1} range, remapping...")
             # Create mapping from original labels to 0..C-1
@@ -271,8 +327,6 @@ class GNNTrainer:
                 negative_slope=self.cfg.gat_negative_slope,
                 dropout=self.cfg.dropout,
                 edge_dim=self.cfg.gat_edge_dim,
-                use_topk=self.cfg.gat_use_topk,
-                k=self.cfg.gat_k,
             ).to(self.device)
         else:
             raise ValueError(f"Unsupported model_type: {self.cfg.model_type}. Use 'gcn' or 'gat'.")
@@ -284,7 +338,7 @@ class GNNTrainer:
         )
 
     # ----- Train / Eval -----
-    def _train_one_epoch(self, train_loader: NeighborLoader, epoch: int) -> Tuple[float, float]:
+    def _train_one_epoch(self, train_loader: NeighborLoader, val_loader: NeighborLoader, epoch: int) -> Tuple[float, float, float, float]:
         assert self.model is not None and self.optimizer is not None
 
         self.model.train()
@@ -310,51 +364,109 @@ class GNNTrainer:
             loss.backward()
             self.optimizer.step()
 
-            total_loss += float(loss.item())
-            preds = out[mask].argmax(dim=1)
+            total_loss += float(loss.detach().item())
+            preds = out[mask].detach().argmax(dim=1)
             correct += int((preds == targets[mask]).sum().item())
             total += int(mask.sum().item())
+            
+            # Clear intermediate variables to free GPU memory
+            del out, loss, preds
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
 
         epoch_loss = total_loss / max(len(train_loader), 1)
         epoch_acc = correct / max(total, 1)
 
         self._log({"train/loss": epoch_loss, "train/acc": epoch_acc, "epoch": epoch}, step=epoch)
-        return epoch_loss, epoch_acc
+
+        # evaluate on validation dataset using validation loader
+        val_loss, val_acc = self.evaluate(split="val", loader=val_loader)
+        # self._log({"val/loss": val_loss, "val/acc": val_acc, "epoch": epoch}, step=epoch)
+        
+        return epoch_loss, epoch_acc, val_loss, val_acc
 
     @torch.no_grad()
-    def evaluate(self) -> float:
+    def evaluate(self, split="test", loader=None) -> Tuple[float, float]:
+        """Evaluate model using NeighborLoader with all neighbors.
+        
+        Args:
+            split: "test" or "val" to specify which nodes to evaluate
+            loader: NeighborLoader to use for evaluation (required)
+            
+        Returns:
+            Tuple of (loss, accuracy)
+        """
         assert self.model is not None and self.data is not None
-
+        assert loader is not None, "NeighborLoader is required for evaluation"
+        
         self.model.eval()
-        d = self.data.to(self.device)
-
-        # Handle different model types
-        if self.cfg.model_type.lower() == "gat":
-            # GAT models can use edge attributes if available
-            edge_attr = getattr(d, 'edge_attr', None)
-            logits = self.model(d.x, d.edge_index, edge_attr=edge_attr)
-        else:
-            logits = self.model(d.x, d.edge_index)
-        mask = d.test_mask.bool()
-        preds = logits[mask].argmax(dim=1).detach().cpu()
-        targets = d.y[mask].to(torch.long).detach().cpu()
-
-        acc = accuracy_score(targets.numpy(), preds.numpy())
-        self._log({"test/acc": acc})
-        return float(acc)
+        return self._evaluate_with_loader(loader, split)
+    
+    
+    def _evaluate_with_loader(self, loader: NeighborLoader, split: str) -> Tuple[float, float]:
+        """Evaluate using NeighborLoader with all neighbors (-1 sampling)."""
+        all_preds = []
+        all_targets = []
+        all_losses = []
+        
+        for batch in loader:
+            batch = batch.to(self.device)
+            
+            if self.cfg.model_type.lower() == "gat":
+                edge_attr = getattr(batch, 'edge_attr', None)
+                out = self.model(batch.x, batch.edge_index, edge_attr=edge_attr)
+            else:
+                out = self.model(batch.x, batch.edge_index)
+            
+            if split == "val":
+                mask = batch.val_mask.bool()
+            else:
+                mask = batch.test_mask.bool()
+            
+            if mask.sum() == 0:
+                continue
+            
+            batch_logits = out[mask]
+            batch_targets = batch.y[mask].to(torch.long)
+            
+            batch_loss = self.criterion(batch_logits, batch_targets)
+            batch_preds = batch_logits.argmax(dim=1).detach().cpu()
+            batch_targets_cpu = batch_targets.detach().cpu()
+            
+            all_preds.append(batch_preds)
+            all_targets.append(batch_targets_cpu)
+            all_losses.append(batch_loss.item())
+            
+            # Memory cleanup
+            del out, batch_logits, batch_targets
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+        
+        if not all_preds:
+            print(f"Warning: No {split} predictions generated")
+            return 0.0, 0.0
+        
+        final_preds = torch.cat(all_preds, dim=0)
+        final_targets = torch.cat(all_targets, dim=0)
+        avg_loss = sum(all_losses) / len(all_losses)
+        
+        acc = accuracy_score(final_targets.numpy(), final_preds.numpy())
+        self._log({f"{split}/acc": acc, f"{split}/loss": avg_loss})
+        
+        return float(avg_loss), float(acc)
 
     def fit(self) -> None:
         self.build_dataset()
-        train_loader = self.build_loaders()
+        train_loader, val_loader, test_loader = self.build_loaders()
         self.build_model()
 
         print(self.device)
         for epoch in range(self.cfg.epochs):
-            loss, acc = self._train_one_epoch(train_loader, epoch)
-            print(f"Epoch {epoch:03d} | loss={loss:.4f} | acc={acc:.4f}")
+            loss, acc, val_loss, val_acc = self._train_one_epoch(train_loader, val_loader, epoch)
+            print(f"Epoch {epoch:03d} | loss={loss:.4f} | train_acc={acc:.4f} | val_loss={val_loss:.4f} | val_acc={val_acc:.4f}")
 
-        test_acc = self.evaluate()
-        print(f"Test Accuracy: {test_acc:.4f}")
+        test_loss, test_acc = self.evaluate(split="test", loader=test_loader)
+        print(f"Final Test Loss: {test_loss:.4f} | Test Accuracy: {test_acc:.4f}")
 
     # Convenience single entry
     def run(self) -> None:
@@ -368,7 +480,9 @@ class GNNTrainer:
 def main():
     cfg = Config(
         # toggle this on to log to W&B (requires `wandb login`)
-        use_wandb=True, seed=42  # Using default seed for reproducibility
+        use_wandb=True, 
+        seed=42,  # Using default seed for reproducibility
+        val_batch_size=1024  # Enable batched validation
     )
     trainer = GNNTrainer(cfg)
     trainer.run()

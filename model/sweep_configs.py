@@ -9,10 +9,10 @@ quick_test_config = {
     'metric': {'name': 'final_test_accuracy', 'goal': 'maximize'},
     'project': 'basic-gnn-sweep=v2',
     'parameters': {
-        'lr': {'values': [5e-4, 1e-3]},
-        'hidden_gnn_size': {'values': [64, 128]},
-        'model_type': {'values': ['gcn', 'gat']},
-        'epochs': {'value': 10}  # Very short for testing
+        'lr': {'values': [5e-4]},
+        'hidden_gnn_size': {'values': [64]},
+        'model_type': {'values': ['gcn']},
+        'epochs': {'value': 25}
     }
 }
 
@@ -21,16 +21,17 @@ gat_test_dry_run = {
     'metric': {'name': 'final_test_accuracy', 'goal': 'maximize'},
     'project': 'gps-gat-test-dry-run',
     'parameters': {
-        'lr': {'values': [5e-4]},
-        'hidden_gnn_size': {'values': [128]},
+        'lr': {'values': [1e-3]},
+        'hidden_gnn_size': {'values': [64]},
         'model_type': {'values': ['gat']},
-        'num_gnn_layers': {'values': [2]},
-        'num_neighbors': {'values': [(20, 20)]},
-        'epochs': {'value': 10},
+        'num_gnn_layers': {'values': [3]},
+        'num_neighbors': {'values': [(20, 20, 20)]},
+        'epochs': {'value': 25},
         # gat parameters
         'gat_heads': {'values': [2]},
-        'gat_use_topk': {'values': [True]},
-        'gat_k': {'values': [5]},
+        'gat_concat': {'values': [True]},
+        'gat_negative_slope': {'values': [0.2]},
+        'gat_edge_dim': {'values': [2]},
     }
 }   
 
@@ -51,8 +52,8 @@ full_sweep_config = {
         'batch_size': {'values': [128, 256, 512]},
         # GAT-specific parameters
         'gat_heads': {'values': [2, 4, 8]},
-        'gat_use_topk': {'values': [True, False]},
-        'gat_k': {'values': [5, 10, 20]},
+        'gat_concat': {'values': [True, False]},
+        'gat_negative_slope': {'values': [0.1, 0.2, 0.3]},
         'epochs': {'value': 100}
     }
 }

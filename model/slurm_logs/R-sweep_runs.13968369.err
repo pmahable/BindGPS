@@ -1,0 +1,151 @@
+/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+wandb: Agent Starting Run: qns9q9eo with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: [0.0001, 0.0005, 0.001]
+wandb: Currently logged in as: sarah_gunasekera (bind-gps) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_150237-qns9q9eo
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run treasured-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/sweeps/moidwvib
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/runs/qns9q9eo
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test3' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+Traceback (most recent call last):
+  File "/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/wandb/agents/pyagent.py", line 297, in _run_job
+    self._function()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/sarah_run_gps.py", line 31, in train
+    trainer.run()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 473, in run
+    self.fit()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 461, in fit
+    self.build_model()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 334, in build_model
+    self.optimizer = torch.optim.Adam(
+  File "/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/torch/optim/adam.py", line 66, in __init__
+    if not 0.0 <= weight_decay:
+TypeError: '<=' not supported between instances of 'float' and 'list'
+
+wandb: updating run metadata
+wandb: 🚀 View run treasured-sweep-1 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/runs/qns9q9eo
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_150237-qns9q9eo/logs
+wandb: ERROR Run qns9q9eo errored: '<=' not supported between instances of 'float' and 'list'
+wandb: Agent Starting Run: xd0ba05n with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.4
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: [0.0001, 0.0005, 0.001]
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_150247-xd0ba05n
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run avid-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/sweeps/moidwvib
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/runs/xd0ba05n
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test3' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+Traceback (most recent call last):
+  File "/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/wandb/agents/pyagent.py", line 297, in _run_job
+    self._function()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/sarah_run_gps.py", line 31, in train
+    trainer.run()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 473, in run
+    self.fit()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 461, in fit
+    self.build_model()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 334, in build_model
+    self.optimizer = torch.optim.Adam(
+  File "/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/torch/optim/adam.py", line 66, in __init__
+    if not 0.0 <= weight_decay:
+TypeError: '<=' not supported between instances of 'float' and 'list'
+
+wandb: updating run metadata
+wandb: 🚀 View run avid-sweep-2 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/runs/xd0ba05n
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_150247-xd0ba05n/logs
+wandb: ERROR Run xd0ba05n errored: '<=' not supported between instances of 'float' and 'list'
+wandb: Agent Starting Run: nlj0ie5n with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.0005
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: [0.0001, 0.0005, 0.001]
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_150253-nlj0ie5n
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run breezy-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/sweeps/moidwvib
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/runs/nlj0ie5n
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test3' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+Traceback (most recent call last):
+  File "/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/wandb/agents/pyagent.py", line 297, in _run_job
+    self._function()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/sarah_run_gps.py", line 31, in train
+    trainer.run()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 473, in run
+    self.fit()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 461, in fit
+    self.build_model()
+  File "/oscar/data/larschan/shared_data/BindGPS/model/agent_trainer_classification_v2.py", line 334, in build_model
+    self.optimizer = torch.optim.Adam(
+  File "/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/torch/optim/adam.py", line 66, in __init__
+    if not 0.0 <= weight_decay:
+TypeError: '<=' not supported between instances of 'float' and 'list'
+
+wandb: updating run metadata
+wandb: 🚀 View run breezy-sweep-3 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/runs/nlj0ie5n
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_150253-nlj0ie5n/logs
+wandb: ERROR Run nlj0ie5n errored: '<=' not supported between instances of 'float' and 'list'
+wandb: ERROR Detected 3 failed runs in the first 60 seconds, killing sweep.
+wandb: To disable this check set WANDB_AGENT_DISABLE_FLAPPING=true

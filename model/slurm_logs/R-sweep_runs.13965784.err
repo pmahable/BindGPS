@@ -1,0 +1,1234 @@
+/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+wandb: Agent Starting Run: vj6v3x4o with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Currently logged in as: sarah_gunasekera (bind-gps) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_130531-vj6v3x4o
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run silver-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/vj6v3x4o
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▃▄▅▅▅▅▅▅▅▅▄▅▅█▄▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅
+wandb: train/loss █▄▃▂▂▁▁▁▁▁▁▁▁▁▁▂▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▄████████████▅█▆██▇█▇██████████████████
+wandb:   val/loss █▂▁▁▁▁▁▁▁▁▁▁▁▄▃▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.82289
+wandb:  train/acc 0.60205
+wandb: train/loss 0.91678
+wandb:    val/acc 0.61866
+wandb:   val/loss 0.92707
+wandb: 
+wandb: 🚀 View run silver-sweep-1 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/vj6v3x4o
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_130531-vj6v3x4o/logs
+wandb: Agent Starting Run: x11nsafj with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_130829-x11nsafj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run trim-sweep-2
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/x11nsafj
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▄▁▁▂▁▁▂▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▇▅▄▃▄▃▄▄▄▄▄▄▄▄▄
+wandb: train/loss █▅▃▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▃▂▂▂▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▂██▆███████████████████▅▂▆█████████████
+wandb:   val/loss █▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▅▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.88697
+wandb:  train/acc 0.60804
+wandb: train/loss 0.91342
+wandb:    val/acc 0.61866
+wandb:   val/loss 0.96454
+wandb: 
+wandb: 🚀 View run trim-sweep-2 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/x11nsafj
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_130829-x11nsafj/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: jn9ri2ng with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_131324-jn9ri2ng
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run blooming-sweep-3
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/jn9ri2ng
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▂▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▂▄▂▄▄▄▄▄█▇▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+wandb: train/loss █▄▃▃▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁
+wandb:    val/acc ▁▂█▅██████▄▆▆███████████████████████████
+wandb:   val/loss █▂▁▂▁▁▁▁▁▁▇▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63216
+wandb:  test/loss 0.77053
+wandb:  train/acc 0.60909
+wandb: train/loss 0.83862
+wandb:    val/acc 0.61866
+wandb:   val/loss 0.84669
+wandb: 
+wandb: 🚀 View run blooming-sweep-3 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/jn9ri2ng
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_131324-jn9ri2ng/logs
+wandb: Agent Starting Run: zjfzlhwz with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_132254-zjfzlhwz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run eternal-sweep-4
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/zjfzlhwz
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▆▁▂▄▄▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▄▄▆█
+wandb: train/loss █▃▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▁▇▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇███
+wandb:   val/loss █▄▂▂▂▂▂▂▂▂▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.67017
+wandb:  test/loss 0.78055
+wandb:  train/acc 0.65885
+wandb: train/loss 0.7551
+wandb:    val/acc 0.66901
+wandb:   val/loss 0.83187
+wandb: 
+wandb: 🚀 View run eternal-sweep-4 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/zjfzlhwz
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_132254-zjfzlhwz/logs
+wandb: Agent Starting Run: huxs9q33 with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_133609-huxs9q33
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run toasty-sweep-5
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/huxs9q33
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▂▄▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆
+wandb: train/loss █▄▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▃██████████████████████████████████████
+wandb:   val/loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.91219
+wandb:  train/acc 0.60219
+wandb: train/loss 0.93372
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.0176
+wandb: 
+wandb: 🚀 View run toasty-sweep-5 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/huxs9q33
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_133609-huxs9q33/logs
+wandb: Agent Starting Run: t6to7idy with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_133917-t6to7idy
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run misunderstood-sweep-6
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/t6to7idy
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▇▁▃▃▄▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅█▅
+wandb: train/loss █▅▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄
+wandb:    val/acc ▁▇████████████████████████████████████▂▂
+wandb:   val/loss ▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▂
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.25111
+wandb:  test/loss 3.71039
+wandb:  train/acc 0.61514
+wandb: train/loss 2.02045
+wandb:    val/acc 0.27619
+wandb:   val/loss 2.60211
+wandb: 
+wandb: 🚀 View run misunderstood-sweep-6 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/t6to7idy
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_133917-t6to7idy/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: eyjjh1q8 with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_134358-eyjjh1q8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run soft-sweep-7
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/eyjjh1q8
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▃▁▄▅▅▅▅▅▅▅▆▆▅▅▆▆▆▆▆▆▅▆▆▆▆▅▆▆▆▆▆▆▅▆▆▆▅▆▅
+wandb: train/loss █▄▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▂████████████████████████████████████▄█
+wandb:   val/loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63216
+wandb:  test/loss 0.92286
+wandb:  train/acc 0.60824
+wandb: train/loss 0.96042
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.0138
+wandb: 
+wandb: 🚀 View run soft-sweep-7 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/eyjjh1q8
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_134358-eyjjh1q8/logs
+wandb: Agent Starting Run: stgy0yvf with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_135338-stgy0yvf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run glowing-sweep-8
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/stgy0yvf
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▄▁▄▃▄▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅
+wandb: train/loss █▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁███████████████████████████████████████
+wandb:   val/loss █▅▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63216
+wandb:  test/loss 0.88711
+wandb:  train/acc 0.60908
+wandb: train/loss 0.84649
+wandb:    val/acc 0.61866
+wandb:   val/loss 0.93972
+wandb: 
+wandb: 🚀 View run glowing-sweep-8 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/stgy0yvf
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_135338-stgy0yvf/logs
+wandb: Agent Starting Run: gponhitp with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_140709-gponhitp
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run young-sweep-9
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/gponhitp
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▂▁▄▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇█▇▇▇▇▇▇▇▇▇
+wandb: train/loss █▆▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▁███████████████████████████▂██████████
+wandb:   val/loss █▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.91592
+wandb:  train/acc 0.60198
+wandb: train/loss 0.93577
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.02075
+wandb: 
+wandb: 🚀 View run young-sweep-9 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/gponhitp
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_140709-gponhitp/logs
+wandb: Agent Starting Run: 5167kcfc with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_141024-5167kcfc
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run devout-sweep-10
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/5167kcfc
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▆▁▄▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆█▅▆▆▆▆▆▆▆▆▆▆▆▆▆
+wandb: train/loss █▆▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▁█████████████████████████▃████████████
+wandb:   val/loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.91568
+wandb:  train/acc 0.6082
+wandb: train/loss 0.93601
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.0243
+wandb: 
+wandb: 🚀 View run devout-sweep-10 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/5167kcfc
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_141024-5167kcfc/logs
+wandb: Agent Starting Run: 1ufnimip with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_141510-1ufnimip
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run jolly-sweep-11
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/1ufnimip
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇██
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▇▃▁▄▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆█▆▆▆▆▆▆
+wandb: train/loss █▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁
+wandb:    val/acc ▁▁▆██████████████████████████████▂▅█████
+wandb:   val/loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▅▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63216
+wandb:  test/loss 0.91639
+wandb:  train/acc 0.60977
+wandb: train/loss 0.93654
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.02323
+wandb: 
+wandb: 🚀 View run jolly-sweep-11 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/1ufnimip
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_141510-1ufnimip/logs
+wandb: Agent Starting Run: 6hhwb379 with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_142500-6hhwb379
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sleek-sweep-12
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/6hhwb379
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▅▁▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+wandb: train/loss █▄▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▁██████████████████████████████████████
+wandb:   val/loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63216
+wandb:  test/loss 0.91561
+wandb:  train/acc 0.60989
+wandb: train/loss 0.93354
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.02158
+wandb: 
+wandb: 🚀 View run sleek-sweep-12 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/6hhwb379
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_142500-6hhwb379/logs
+wandb: Agent Starting Run: 6c6rkgcm with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_143850-6c6rkgcm
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ethereal-sweep-13
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/6c6rkgcm
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▅▅▄▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▆▆▅▅▅▅▅▅▇▅▅▅▅▅▅▅▅
+wandb: train/loss ▇█▄▄▅▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▄▃▄▃▄▂▄▃▅▂▁▁▁▃▃▂
+wandb:    val/acc ▁█▅▇███████████████████▅▂█▇████▆████████
+wandb:   val/loss ▇▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂█▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.93688
+wandb:  train/acc 0.60103
+wandb: train/loss 0.98382
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.01085
+wandb: 
+wandb: 🚀 View run ethereal-sweep-13 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/6c6rkgcm
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_143850-6c6rkgcm/logs
+wandb: Agent Starting Run: lz382jiy with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_144153-lz382jiy
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run good-sweep-14
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/lz382jiy
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▄▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▄▆▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅
+wandb: train/loss ▇█▄▄▄▃▂▂▂▂▂▂▂▂▂▂▂▂▂▂▄▄▄▅▄▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁███████████████████▇█▆▇████████████████
+wandb:   val/loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.81607
+wandb:  train/acc 0.60795
+wandb: train/loss 0.89327
+wandb:    val/acc 0.61866
+wandb:   val/loss 0.8952
+wandb: 
+wandb: 🚀 View run good-sweep-14 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/lz382jiy
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_144153-lz382jiy/logs
+wandb: Agent Starting Run: sjmpoczf with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_144623-sjmpoczf
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run sparkling-sweep-15
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/sjmpoczf
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇██
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▁▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▅▆▇▆▆▆▆▆▆▆▆█▆
+wandb: train/loss ▆█▄▄▄▂▃▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂▂▂▁▁▃▃▂▃▃▂▁▂▁▁▁▁▂▃
+wandb:    val/acc ▁▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▅▇▇▇▇▇▇▇█▇
+wandb:   val/loss █▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.62854
+wandb:  test/loss 0.7526
+wandb:  train/acc 0.60849
+wandb: train/loss 0.93544
+wandb:    val/acc 0.61496
+wandb:   val/loss 0.81387
+wandb: 
+wandb: 🚀 View run sparkling-sweep-15 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/sjmpoczf
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_144623-sjmpoczf/logs
+wandb: Agent Starting Run: krqnf0zs with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_145558-krqnf0zs
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run resilient-sweep-16
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/krqnf0zs
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▆▁▁▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▄▆▇▇█▇█▅▆▆▇█▇█▂▇█▇▆
+wandb: train/loss █▇▆▅▄▄▄▃▄▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂▁▂▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▄▇▇▇▇▇▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇█▇▇█▇▇▁███████▇█▇▇
+wandb:   val/loss █▃▃▂▂▂▂▂▂▂▂▂▁▁▁▁▂▁▁▁▂▁▁▁▁▁▁▃▁▁▁▁▁▁▁▁▁▁▂▂
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.66565
+wandb:  test/loss 0.84522
+wandb:  train/acc 0.67082
+wandb: train/loss 0.75485
+wandb:    val/acc 0.65716
+wandb:   val/loss 0.85866
+wandb: 
+wandb: 🚀 View run resilient-sweep-16 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/krqnf0zs
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_145558-krqnf0zs/logs
+wandb: Agent Starting Run: 91tnhizh with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_150921-91tnhizh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run effortless-sweep-17
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/91tnhizh
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▃▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▅▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▇
+wandb: train/loss ▄█▃▃▃▂▂▂▁▁▁▁▁▁▁▂▂▂▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█
+wandb:    val/acc ▁██████████████████████████████████████▁
+wandb:   val/loss ▃▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.17599
+wandb:  test/loss 11.10182
+wandb:  train/acc 0.62942
+wandb: train/loss 1.40474
+wandb:    val/acc 0.20178
+wandb:   val/loss 9.09407
+wandb: 
+wandb: 🚀 View run effortless-sweep-17 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/91tnhizh
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_150921-91tnhizh/logs
+wandb: Agent Starting Run: w15ocxuy with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_151229-w15ocxuy
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run decent-sweep-18
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/w15ocxuy
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata; uploading history steps 47-50, summary, console lines 57-59
+wandb: uploading summary, console lines 60-60
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇██
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▅▆▆▆▆▆▆▆▆▆▆▆▆▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆
+wandb: train/loss ▆█▄▃▃▂▂▂▂▂▂▂▂▂▂▂▃▂▃▄▃▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁███████████████████████████████████████
+wandb:   val/loss █▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.86556
+wandb:  train/acc 0.60857
+wandb: train/loss 0.92161
+wandb:    val/acc 0.61866
+wandb:   val/loss 0.968
+wandb: 
+wandb: 🚀 View run decent-sweep-18 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/w15ocxuy
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_151229-w15ocxuy/logs
+wandb: Agent Starting Run: w7hvpuv5 with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_151704-w7hvpuv5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run stellar-sweep-19
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/w7hvpuv5
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▆▅▆▇▅▄▄
+wandb: train/loss ▅█▄▄▄▃▃▃▃▃▃▃▃▃▃▃▂▄▄▄▂▂▂▂▃▂▂▂▂▁▁▁▁▁▁▁▂▁▂▁
+wandb:    val/acc ▁▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇█▇█▅▇▇█
+wandb:   val/loss █▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▂▂▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.73422
+wandb:  test/loss 0.7135
+wandb:  train/acc 0.57625
+wandb: train/loss 0.85009
+wandb:    val/acc 0.72158
+wandb:   val/loss 0.76924
+wandb: 
+wandb: 🚀 View run stellar-sweep-19 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/w7hvpuv5
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_151704-w7hvpuv5/logs
+wandb: Sweep Agent: Waiting for job.
+wandb: Job received.
+wandb: Agent Starting Run: lpttwh4x with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 3
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_152654-lpttwh4x
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run solar-sweep-20
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/lpttwh4x
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▆▁▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄████████████
+wandb: train/loss ▆█▅▅▅▄▄▄▄▄▅▅▅▄▄▃▃▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇█▇▇██████████▆███
+wandb:   val/loss █▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.7444
+wandb:  test/loss 0.65931
+wandb:  train/acc 0.7267
+wandb: train/loss 0.6564
+wandb:    val/acc 0.73158
+wandb:   val/loss 0.71205
+wandb: 
+wandb: 🚀 View run solar-sweep-20 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/lpttwh4x
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_152654-lpttwh4x/logs
+wandb: Agent Starting Run: vus3kdjj with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_154028-vus3kdjj
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run soft-sweep-21
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/vus3kdjj
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▅▁▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█▇▄▄▅▄▄▄▄▄
+wandb: train/loss ▄▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▃█▄▄▂▂▂▂▂
+wandb:    val/acc ▁█████████████████████████████▁▂▂▃██████
+wandb:   val/loss ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▇█▁▁▃▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.92481
+wandb:  train/acc 0.60328
+wandb: train/loss 0.95278
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.01828
+wandb: 
+wandb: 🚀 View run soft-sweep-21 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/vus3kdjj
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_154028-vus3kdjj/logs
+wandb: Agent Starting Run: 0s7toirr with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_154342-0s7toirr
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run rose-sweep-22
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/0s7toirr
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇█▇▆▇▇▇▇▇▇▇▇▇▇▇▇▇
+wandb: train/loss ▄▃▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▃█▃▂▂▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁███████████████████████▂▂██████████████
+wandb:   val/loss ▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63157
+wandb:  test/loss 0.9115
+wandb:  train/acc 0.60863
+wandb: train/loss 0.94246
+wandb:    val/acc 0.61866
+wandb:   val/loss 1.00859
+wandb: 
+wandb: 🚀 View run rose-sweep-22 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/0s7toirr
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_154342-0s7toirr/logs
+wandb: Agent Starting Run: d9hshvba with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_154827-d9hshvba
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run upbeat-sweep-23
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/d9hshvba
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇██
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc ▇▁▆▆▆▆▆▆▆▆▆▆▆▆▆▆█▇▅▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆▆
+wandb: train/loss ▃▄▂▂▂▂▂▁▂▁▂▁▁▁▁▁▂█▅▅▂▂▂▁▁▁▁▁▁▁▁▂▂▂▁▁▁▁▁▁
+wandb:    val/acc ▁███████████████▅▁█▅████████████▄███████
+wandb:   val/loss ▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁█▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▂▁▁▁▁▁▁
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.63216
+wandb:  test/loss 0.86333
+wandb:  train/acc 0.6098
+wandb: train/loss 0.91804
+wandb:    val/acc 0.61866
+wandb:   val/loss 0.96653
+wandb: 
+wandb: 🚀 View run upbeat-sweep-23 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/d9hshvba
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_154827-d9hshvba/logs
+wandb: Agent Starting Run: i2gcyipz with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: False
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 4
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [20, 20, 20]
+wandb: 	weight_decay: 0.0005
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_155818-i2gcyipz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run neat-sweep-24
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/sweeps/ivpdewin
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/i2gcyipz
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test2' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: updating run metadata
+wandb: 
+wandb: Run history:
+wandb:      epoch ▁▁▁▁▂▂▂▂▂▂▃▃▃▃▃▄▄▄▄▄▅▅▅▅▅▆▆▆▆▆▆▇▇▇▇▇▇███
+wandb:   test/acc ▁
+wandb:  test/loss ▁
+wandb:  train/acc █▁▅▅▅▅▅▅▅▅▅▅▅▆▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▆▅▅▅▅
+wandb: train/loss ▅█▆▅▅▄▄▄▄▄▄▄▃▅▅▄▄▄▄▄▄▃▃▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:    val/acc ▁████████████▄█████████████████████▇███▄
+wandb:   val/loss █▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▁▂▁▁▂▁▁▁▁▁▁▁▁▂▂▂▂▂▁▂▁▁▂
+wandb: 
+wandb: Run summary:
+wandb:      epoch 49
+wandb:   test/acc 0.39194
+wandb:  test/loss 0.94008
+wandb:  train/acc 0.60981
+wandb: train/loss 0.72578
+wandb:    val/acc 0.39504
+wandb:   val/loss 0.9602
+wandb: 
+wandb: 🚀 View run neat-sweep-24 at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2/runs/i2gcyipz
+wandb: ⭐️ View project at: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test2
+wandb: Synced 5 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20251110_155818-i2gcyipz/logs

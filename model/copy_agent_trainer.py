@@ -132,6 +132,7 @@ class GNNTrainer:
                 project=self.cfg.wandb_project,
                 entity=self.cfg.wandb_entity,
                 config=asdict(self.cfg),
+                name="GNN testing with SVM",
             )
         except Exception as e:
             print(f"[WARN] W&B init failed: {e}")
@@ -153,7 +154,25 @@ class GNNTrainer:
         # Feature selection
         feats = [f for f in self.cfg.features_of_interest if f not in self.cfg.exclude_features]
         input_features = self.node_df.loc[:, feats].copy()
-
+        
+        # Sanity check print statements
+        print("Original input_features shape:", input_features.shape)
+        
+        # Incorporating SVM sequence vector features
+        svm_path = "/oscar/data/larschan/shared_data/BindGPS/data/1kb_128_vec_dataset.pt"
+        svm_dataset = torch.load(svm_path, weights_only=False)
+        chrM_indices = svm_dataset.metadata.index[svm_dataset.metadata["chr"] == "chrM"].tolist()
+        svm_vecs = np.delete(svm_dataset.vecs, chrM_indices, axis=0)
+        #svm_vecs = svm_dataset.vecs
+        combined_features = np.hstack([input_features.to_numpy(), svm_vecs])
+        input_features = pd.DataFrame(
+            combined_features,
+            index=self.node_df.index,
+            columns=list(input_features.columns) + [f"svm_{i}" for i in range(svm_vecs.shape[1])]
+        )
+        #print("SVM vector shape:", svm_vecs.shape)
+        #print("Combined/ new  input_feature shape:", combined_features.shape)
+        
         # Target and mask (mre > 0 considered labeled)
         target = self.node_df[self.cfg.target_column].copy()
         self.node_df["mre_mask"] = self.node_df[self.cfg.target_column].apply(lambda x: True if x > 0 else False)

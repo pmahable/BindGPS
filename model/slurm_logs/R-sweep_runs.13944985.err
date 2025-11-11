@@ -1,0 +1,38 @@
+/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'repr' attribute with value False was provided to the `Field()` function, which has no effect in the context it was used. 'repr' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+/users/ssgunase/bind_gps_env/lib64/python3.9/site-packages/pydantic/_internal/_generate_schema.py:2249: UnsupportedFieldAttributeWarning: The 'frozen' attribute with value True was provided to the `Field()` function, which has no effect in the context it was used. 'frozen' is field-specific metadata, and can only be attached to a model field using `Annotated` metadata or by assignment. This may have happened because an `Annotated` type alias using the `type` statement was used, or if the `Field()` function was attached to a single member of a union type.
+  warnings.warn(
+wandb: Agent Starting Run: bmmfanvh with config:
+wandb: 	batch_size: 256
+wandb: 	dropout: 0.3
+wandb: 	epochs: 50
+wandb: 	gat_concat: True
+wandb: 	gat_edge_dim: 0
+wandb: 	gat_heads: 4
+wandb: 	gat_negative_slope: 0.2
+wandb: 	hidden_gnn_size: 64
+wandb: 	hidden_linear_size: 128
+wandb: 	lr: 0.001
+wandb: 	model_type: gat
+wandb: 	num_gnn_layers: 2
+wandb: 	num_linear_layers: 3
+wandb: 	num_neighbors: [10, 10]
+wandb: 	weight_decay: 0.0005
+wandb: Currently logged in as: sarah_gunasekera (bind-gps) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.22.2
+wandb: Run data is saved locally in /oscar/data/larschan/shared_data/BindGPS/model/wandb/run-20251110_012158-bmmfanvh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run blooming-sweep-1
+wandb: ⭐️ View project at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test
+wandb: 🧹 View sweep at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test/sweeps/00v4zgc2
+wandb: 🚀 View run at https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test/runs/bmmfanvh
+wandb: WARNING Calling wandb.login() after wandb.init() has no effect.
+wandb: WARNING Ignoring project 'gps-gat-model-no-svm-parameter-test' when running a sweep.
+wandb: WARNING Ignoring entity 'bind-gps' when running a sweep.
+wandb: wandb.init() called while a run is active and reinit is set to 'default', so returning the previous run.
+wandb: ERROR Error while calling W&B API: agent not found (<Response [404]>)
+wandb: ERROR Error while calling W&B API: agent not found (<Response [404]>)
+wandb: ERROR Error while calling W&B API: agent not found (<Response [404]>)
+wandb: ERROR Error while calling W&B API: agent not found (<Response [404]>)
+wandb: WARNING Fatal error while uploading data. Some run data will not be synced, but it will still be written to disk. Use `wandb sync` at the end of the run to try uploading.
+slurmstepd: error: *** JOB 13944985 ON gpu2005 CANCELLED AT 2025-11-10T01:23:23 ***

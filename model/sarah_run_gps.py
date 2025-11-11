@@ -3,9 +3,7 @@
 Simple GPS Sweep Runner with WandB integration
 """
 from itertools import product
-#from agent_trainer_classification_v2 import Config, GNNTrainer
-#copy_agent_trainer adds sequence info 
-from copy_agent_trainer import Config, GNNTrainer
+from agent_trainer_classification_v2 import Config, GNNTrainer
 from sweep_configs import get_sweep_config
 import wandb
 
@@ -31,7 +29,6 @@ def train():
     # Run training
     trainer = GNNTrainer(config)
     trainer.run()
-    
     return
 
 
@@ -110,17 +107,16 @@ if __name__ == "__main__":
     # print("Running single GCN experiment...")
     # run_single()
     
-    #Run single experiment with GAT
-    #print("Running single GAT experiment...")
-    #gat_test_config = get_sweep_config('quick_test')
-    #run_wandb_sweep(gat_test_config, count=1)
+    # Run single experiment with GAT
+    # print("Running single GAT experiment...")
+    # gat_test_config = get_sweep_config('first_pass_gat')
+    # run_wandb_sweep(gat_test_config, count=1)
     
     # Example sweeps (uncomment to run):
     # print("Running quick test with both models...")
     # run_quick_test_with_models(count=4)
-    
-    #ROMER
-    print("Running model parameter sweep with GAT (WITH SVM)")
-    gat_config = get_sweep_config('gat_data_param_sweep')
-    run_wandb_sweep(gat_config, count=24)
 
+    #SARAH
+    print("Running model parameter sweep with GAT (NO SVM)")
+    config = get_sweep_config('gat_model_no_svm_param_sweep3')
+    run_wandb_sweep(config, count=24) #24 is the budget of the sweep

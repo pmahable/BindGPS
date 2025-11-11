@@ -1,0 +1,29 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 13968369
+##  Job Name : sweep_runs
+##  Nodelist : gpu2004
+##      CPUs : 1
+##  Mem/Node : 32000 MB
+## Directory : /oscar/data/larschan/shared_data/BindGPS/model
+##   Job Started : Mon Nov 10 15:02:10 EST 2025
+###############################################################################
+Running model parameter sweep with GAT (NO SVM)
+Create sweep with ID: moidwvib
+Sweep URL: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test3/sweeps/moidwvib
+Created sweep: moidwvib
+Starting 24 runs...
+Unique train labels: tensor([0, 1, 2])
+Training with num_classes: 3
+Train Samples: 20232
+Val Samples: 2601
+Test Samples: 6071
+Unique train labels: tensor([0, 1, 2])
+Training with num_classes: 3
+Train Samples: 20232
+Val Samples: 2601
+Test Samples: 6071
+Unique train labels: tensor([0, 1, 2])
+Training with num_classes: 3
+Train Samples: 20232
+Val Samples: 2601
+Test Samples: 6071

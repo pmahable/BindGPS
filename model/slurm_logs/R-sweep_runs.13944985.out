@@ -1,0 +1,41 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 13944985
+##  Job Name : sweep_runs
+##  Nodelist : gpu2005
+##      CPUs : 1
+##  Mem/Node : 32000 MB
+## Directory : /oscar/data/larschan/shared_data/BindGPS/model
+##   Job Started : Mon Nov 10 01:21:23 EST 2025
+###############################################################################
+Running model parameter sweep with GAT (NO SVM)
+Create sweep with ID: 00v4zgc2
+Sweep URL: https://wandb.ai/bind-gps/gps-gat-model-no-svm-parameter-test/sweeps/00v4zgc2
+Created sweep: 00v4zgc2
+Starting 24 runs...
+Unique train labels: tensor([0, 1, 2])
+Training with num_classes: 3
+Train Samples: 20232
+Val Samples: 2601
+Test Samples: 6071
+cuda
+Epoch 000 | loss=1.9993 | train_acc=0.6531 | val_loss=5.0858 | val_acc=0.1866
+Epoch 001 | loss=1.3191 | train_acc=0.5370 | val_loss=1.0720 | val_acc=0.6142
+Epoch 002 | loss=1.1456 | train_acc=0.5894 | val_loss=1.0698 | val_acc=0.5128
+Epoch 003 | loss=1.0909 | train_acc=0.5785 | val_loss=1.0396 | val_acc=0.6198
+Epoch 004 | loss=1.0645 | train_acc=0.5828 | val_loss=1.0387 | val_acc=0.5461
+Epoch 005 | loss=1.0203 | train_acc=0.5922 | val_loss=1.0203 | val_acc=0.6187
+Epoch 006 | loss=0.9925 | train_acc=0.6021 | val_loss=1.0128 | val_acc=0.6187
+Epoch 007 | loss=0.9759 | train_acc=0.6025 | val_loss=1.0124 | val_acc=0.6187
+Epoch 008 | loss=0.9662 | train_acc=0.6032 | val_loss=1.0146 | val_acc=0.6187
+Epoch 009 | loss=0.9603 | train_acc=0.6036 | val_loss=1.0170 | val_acc=0.6187
+Epoch 010 | loss=0.9592 | train_acc=0.6021 | val_loss=1.0189 | val_acc=0.6187
+Epoch 011 | loss=0.9562 | train_acc=0.6025 | val_loss=1.0204 | val_acc=0.6187
+Epoch 012 | loss=0.9564 | train_acc=0.6016 | val_loss=1.0214 | val_acc=0.6187
+Epoch 013 | loss=0.9553 | train_acc=0.6018 | val_loss=1.0220 | val_acc=0.6187
+Epoch 014 | loss=0.9546 | train_acc=0.6030 | val_loss=1.0225 | val_acc=0.6187
+Epoch 015 | loss=0.9536 | train_acc=0.6023 | val_loss=1.0227 | val_acc=0.6187
+Epoch 016 | loss=0.9537 | train_acc=0.6020 | val_loss=1.0226 | val_acc=0.6187
+Epoch 017 | loss=0.9529 | train_acc=0.6027 | val_loss=1.0225 | val_acc=0.6187
+Epoch 018 | loss=0.9526 | train_acc=0.6012 | val_loss=1.0203 | val_acc=0.6187
+Epoch 019 | loss=0.9556 | train_acc=0.6016 | val_loss=1.0204 | val_acc=0.6187
+Epoch 020 | loss=0.9520 | train_acc=0.6038 | val_loss=1.0205 | val_acc=0.6187

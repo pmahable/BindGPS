@@ -1,0 +1,9 @@
+## SLURM PROLOG ###############################################################
+##    Job ID : 13944952
+##  Job Name : sweep_runs
+##  Nodelist : gpu2003
+##      CPUs : 1
+##  Mem/Node : 32000 MB
+## Directory : /oscar/data/larschan/shared_data/BindGPS/model
+##   Job Started : Mon Nov 10 01:20:02 EST 2025
+###############################################################################
